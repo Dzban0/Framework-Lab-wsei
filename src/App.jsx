@@ -15,6 +15,7 @@ function App() {
     {id: 2, label: "Lab1",url:"/Lab1",urlPattern:"/Lab1",element:<Lab1/>}, 
     {id: 3, label: "Lab2",url:"/Lab2/:id",urlPattern: "/lab2/:id",element:<Lab2/>},
     {id: 4, label: "Lab3",url:"/Lab3",urlPattern:"/Lab3",element:<Lab3/>}, 
+    {id: 5, label: "Lab4",url:"/Lab4",urlPattern:"/Lab4",element:<Lab4/>}, 
   ];
   return (
     <>
