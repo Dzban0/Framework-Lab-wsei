@@ -1,44 +1,31 @@
-import { useEffect, useState } from 'react'
-import PersonClass from './components/PersonClass'
-import {data} from './module-gen/module-data'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {Routes,Route} from 'react-router-dom';
+// import './App.css'
+
+import RootLayout from './layouts/RootLayout.jsx'
+import Lab1 from  './pages/Lab1.jsx'
+import Lab2 from  './pages/Lab2.jsx'
+import Lab3 from  './pages/Lab3.jsx'
+import Home from  './pages/home.jsx'
+import NotFound from  './pages/NotFound.jsx'
+
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [profiles, setProfiles]=useState([]);
-
-  useEffect(()=>{
-    setProfiles(data);
-  }, []);
+  const menuItems = [
+    {id: 1, label: "Home",url:"/",urlPattern:"/",element:<Home/>},
+    {id: 2, label: "Lab1",url:"/Lab1",urlPattern:"/Lab1",element:<Lab1/>}, 
+    {id: 3, label: "Lab2",url:"/Lab2/:id",urlPattern: "/lab2/:id",element:<Lab2/>},
+    {id: 4, label: "Lab3",url:"/Lab3",urlPattern:"/Lab3",element:<Lab3/>}, 
+  ];
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <div className='card'>
-        {profiles.map(person=>(
-          <PersonClass key={person.id} person={person} />
-        ))}
-      </div> 
+      <RootLayout items={menuItems}>
+        <Routes>
+              {menuItems.map(item=>(
+                <Route path={item.url} element={item.element} key={item.id}></Route>
+              ))}
+              <Route path='/*' element={<NotFound/>}/>
+          </Routes>
+      </RootLayout>
     </>
   )
 }
