@@ -1,19 +1,22 @@
 {
-  "name": "Lab",
+  "name": "lab0",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node ./src/module-gen/module-data-generator.cjs && vite",
+    "dev": "node ./src/data/randomData/module-data-generator.cjs 10 && vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
-    "bootstrap": "^4.1.2",
+    "bootstrap": "^5.3.3",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-bootstrap": "^2.10.5",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.53.1",
+    "react-router-dom": "^6.27.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
