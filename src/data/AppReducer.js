@@ -8,6 +8,7 @@ export default function AppReducer(state, action) {
             );
         }
         case "rate": {
+            // Find the item by id and update its rating
             return state.map(item =>
                 item.id === action.id
                     ? { ...item, rating: action.newRating }
@@ -15,8 +16,15 @@ export default function AppReducer(state, action) {
             );
         }
         case "delete": {
+            // Remove the item with the matching id
             return state.filter(item => item.id !== action.id);
         }
+        // case "setCurrentPerson": {
+        //     return {
+        //         ...state,
+        //         currentPerson: action.payload, // Store the current person for editing
+        //     }
+        // }
         default:
             return state;
     }

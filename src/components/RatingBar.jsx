@@ -1,20 +1,21 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
+const RatingBar = ({ rate }) => {
+    const totalStars = 10;
+    const filledStars = Array(rate).fill("★");
+    const emptyStars = Array(totalStars - rate).fill("☆");
 
-const RatingBar=({rate})=>{
-    const TotalStars=10;
-    const FilledStars=Array(rate).fill("★");
-    const EmptyStars=Array(TotalStars-rate).fill("☆")
-
-    return(
+    return (
         <div className="rating-bar">
-            {FilledStars.concat(EmptyStars).map((star,index)=>(
-                <span key={index} style={{fontSize:'20px'}}>{star}</span>
+            {filledStars.concat(emptyStars).map((star, index) => (
+                <span key={index} style={{ fontSize: '20px' }}>{star}</span>
             ))}
         </div>
-    )
-}
-RatingBar.propTypes={
-    rate:PropTypes.number.isRequired
-}
-export default RatingBar
+    );
+};
+
+RatingBar.propTypes = {
+    rate: PropTypes.number.isRequired,
+};
+
+export default RatingBar;

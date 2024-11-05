@@ -1,30 +1,26 @@
-import NavBarMenu from "./NavBarMenu";
-import Footer from './Footer';
-import PropTypes from "prop-types";
+import NavBarMenu from '../components/NavBarMenu';
+import Footer from '../components/Footer';
+import PropTypes from 'prop-types';
 
-
-function RootLayout ({children,items}) {
+function RootLayout({ children, items }) {
   return (
     <div>
-        <NavBarMenu items={items} />
-      <main>
-        {children}
-      </main>
-        <Footer />
+      <NavBarMenu items={items} />
+      <main>{children}</main>
+      <Footer />
     </div>
   );
 }
 
 RootLayout.propTypes = {
-  children:PropTypes.node.isRequired,
-  items:PropTypes.arrayOf(
-    PropTypes.shape({
-      id:PropTypes.number.isRequired,
-      label:PropTypes.string.isRequired,
-      path:PropTypes.string.isRequired
-    }).isRequired,
-  )
-}
+    children: PropTypes.node.isRequired, // children to dowolny renderowalny element
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        label: PropTypes.string.isRequired,
+        path: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+  };
 
-
-export default RootLayout
+export default RootLayout;

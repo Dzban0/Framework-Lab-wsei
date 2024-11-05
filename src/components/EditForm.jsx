@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import AppContext from "../data/AppContext";
@@ -27,6 +27,7 @@ const EditForm = () => {
     }, [person, setValue]);
 
     const onSubmit = (data) => {
+        data["rating"]=parseInt(data["rating"])
         dispatch({
             type: "edit",
             id: person.id,
